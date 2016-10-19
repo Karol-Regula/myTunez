@@ -41,10 +41,17 @@ int main(){
     list = removeNode(list, 7);
     list = removeNode(list, 2);
     printList(list);
+
+    printf("\n");
+    list = removeAll(list);
+    printList(list);
     return 0;
 }
 
 void printList(struct songNode *node){
+    if (node == 0){
+	return;
+    }
     while (node->next){
   	printf("Artist: %s\n", node->artist);
   	printf("Name: %s\n", node->name);
@@ -158,4 +165,15 @@ struct songNode * removeNode(struct songNode * node, int which){
     node->next = node->next->next;
     free(hold);
     return first;
+}
+
+
+struct songNode * removeAll(struct songNode * node){
+    while (node->next){
+	node = removeNode(node, 0);
+	if (node->next == 0){
+	    return removeNode(node, 0);
+	}
+    }
+    return 0;//should never get to this
 }
