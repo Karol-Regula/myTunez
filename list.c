@@ -11,7 +11,7 @@ int main(){
     //songNode *table[26];
     printf("\n");
     struct songNode *list = 0;
-    list = insertFront(list, "Jim", "Kirk");
+    list = insertOrder(list, "Jim", "Kirk");
     list = insertOrder(list, "Bones", "McCoy");
     printList(list);
     list = insertOrder(list, "Spock", "Vulcan");
@@ -47,26 +47,27 @@ struct songNode * insertOrder(struct songNode * node, char artist[256], char nam
     struct songNode *new = (struct songNode *) malloc(sizeof(*new));
     strcpy(new->name, name);
     strcpy(new->artist, artist);
-    printf("hello\n");
+    if (node == 0){
+	return new; //if creating the first node in a list
+    } 
     if (strcmp(artist, node->artist) < 0){
 	new->next = node;
-	return new;
+	return new; //if adding to the front of the list
     }
     while(node->next && strcmp(artist, node->next->artist) >= 0){
 	if (node->next && strcmp(artist, node->next->artist) == 0){
-	    //printf("Artist Duplicate.\n");
 	    while(node->next && strcmp(name, node->next->name) > 0){
 		node = node->next;
 	    }
 	    struct songNode *temp = node->next;
 	    node->next = new;
 	    new->next = temp;
-	    return first;
+	    return first;//returns here if a duplicate artist was found
 	}
 	node = node->next;
     }
     struct songNode *temp = node->next;
     node->next = new;
     new->next = temp;
-    return first;
+    return first;//returns here if no duplicate artist was found
 }
