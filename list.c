@@ -10,6 +10,9 @@
 int main(){
     //will need later
     //songNode *table[26];
+
+    srand(time(NULL));
+    
     printf("\n");
     struct songNode *list = 0;
     list = insertOrder(list, "Jim", "Kirk");
@@ -31,7 +34,13 @@ int main(){
 
     printf("\n");
     printNode(findRandom(list));
-    
+    printNode(findRandom(list));
+
+    printf("\n");
+    list = removeNode(list, 0);
+    list = removeNode(list, 7);
+    list = removeNode(list, 2);
+    printList(list);
     return 0;
 }
 
@@ -116,7 +125,6 @@ struct songNode * findArtist(struct songNode * node, char artist[256]){
 }
 
 struct songNode * findRandom(struct songNode * node){
-    srand(time(NULL));
     int len = 0;
     struct songNode *first = node;
     while (node->next){//finding length of linkedlist
@@ -131,4 +139,23 @@ struct songNode * findRandom(struct songNode * node){
 	randInt--;
     }
     return node;
+}
+
+struct songNode * removeNode(struct songNode * node, int which){
+    //assumes that the node that is called to be removed exists in the list
+    //printf("Removing node %d\n", which);
+    struct songNode *first = node;
+    if (which == 0){
+	first = node->next;
+	free(node);
+	return first;
+    }
+    while(which - 1){
+	node = node->next;
+	which--;
+    }
+    struct songNode *hold = node->next;//a pointer to the node that will be removed(for freeing)
+    node->next = node->next->next;
+    free(hold);
+    return first;
 }
