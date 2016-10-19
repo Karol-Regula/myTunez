@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "list.h" //list header file
 
 //this file contains all the linked list methods
@@ -21,11 +22,16 @@ int main(){
     list = insertOrder(list, "Aaron", "A");
     list = insertOrder(list, "Aaron", "B");
     printList(list);
+    
     printf("\n");
     printNode(findSong(list, "Kirk"));
     findSong(list, "Bob");
     printNode(findArtist(list, "Spock"));
     findArtist(list, "Bill");
+
+    printf("\n");
+    printNode(findRandom(list));
+    
     return 0;
 }
 
@@ -107,4 +113,22 @@ struct songNode * findArtist(struct songNode * node, char artist[256]){
     }
     printf("artist not found\n");
     return 0;
+}
+
+struct songNode * findRandom(struct songNode * node){
+    srand(time(NULL));
+    int len = 0;
+    struct songNode *first = node;
+    while (node->next){//finding length of linkedlist
+	len++;
+	node = node->next;
+    }
+    int randInt = (rand()%(len + 1));
+    //printf("randInt: %d\n", randInt);
+    node = first;//resetting the first node
+    while (randInt){//getting to required node
+	node = node->next;
+	randInt--;
+    }
+    return node;
 }
