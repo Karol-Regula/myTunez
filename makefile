@@ -1,8 +1,8 @@
 list: list.c list.h
-	gcc list.c -o list
+	gcc list.c -o myTunez
 
 run: list
-	./list
+	./myTunez
 
 clean:
 	rm *~
