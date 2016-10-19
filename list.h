@@ -5,5 +5,8 @@ typedef struct songNode{
 }songNode;
 
 void printList(struct songNode *);
+void printNode(struct songNode *);
 struct songNode * insertFront(struct songNode *, char[256], char[256]);
 struct songNode * insertOrder(struct songNode *, char[256], char[256]);
+struct songNode * findSong(struct songNode *, char[256]);
+struct songNode * findArtist(struct songNode *, char[256]);

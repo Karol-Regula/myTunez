@@ -13,14 +13,19 @@ int main(){
     struct songNode *list = 0;
     list = insertOrder(list, "Jim", "Kirk");
     list = insertOrder(list, "Bones", "McCoy");
-    printList(list);
     list = insertOrder(list, "Spock", "Vulcan");
     list = insertOrder(list, "Spock", "Ears");
     list = insertOrder(list, "Spock", "Z");
     list = insertOrder(list, "Spock", "Y");
     list = insertOrder(list, "Spock", "Q");
+    list = insertOrder(list, "Aaron", "A");
+    list = insertOrder(list, "Aaron", "B");
     printList(list);
     printf("\n");
+    printNode(findSong(list, "Kirk"));
+    findSong(list, "Bob");
+    printNode(findArtist(list, "Spock"));
+    findArtist(list, "Bill");
     return 0;
 }
 
@@ -32,6 +37,10 @@ void printList(struct songNode *node){
     }
     printf("Artist: %s\n", node->artist);
     printf("Name: %s\n\n", node->name);
+}
+
+void printNode(struct songNode *node){
+    printf("%s - %s\n", node->artist, node->name);
 }
 
 struct songNode * insertFront(struct songNode * node, char artist[256], char name[256]){
@@ -70,4 +79,32 @@ struct songNode * insertOrder(struct songNode * node, char artist[256], char nam
     node->next = new;
     new->next = temp;
     return first;//returns here if no duplicate artist was found
+}
+
+struct songNode * findSong(struct songNode * node, char name[256]){
+    while (node->next){
+	if (strcmp(node->name, name) == 0){
+	    return node;
+	}
+	node = node->next;
+    }
+    if (strcmp(node->name, name) == 0){
+	return node;//takes care of case at end dictionary
+    }
+    printf("song not found\n");
+    return 0;
+}
+
+struct songNode * findArtist(struct songNode * node, char artist[256]){
+    while (node->next){
+	if (strcmp(node->artist, artist) == 0){
+	    return node;
+	}
+	node = node->next;
+    }
+    if (strcmp(node->artist, artist) == 0){
+	return node;//takes care of case at end dictionary
+    }
+    printf("artist not found\n");
+    return 0;
 }
