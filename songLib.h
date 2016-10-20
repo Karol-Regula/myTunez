@@ -6,3 +6,5 @@ void printLetter(songNode * [], char);
 void printArtist(songNode * [], char[]);
 void findSongLib(songNode * [], char[], char[]);
 void findArtistLib(songNode * [], char[]);
+void deleteSong(songNode * [], char[], char[]);
+void deleteLib(songNode * []);

@@ -114,6 +114,7 @@ struct songNode * removeNode(struct songNode * node, int which){
     struct songNode *first = node;
     if (which == 0){
 	first = node->next;
+	printf("Freeing node: %s - %s\n", node->artist, node->name);
 	free(node);
 	return first;
     }
@@ -123,17 +124,21 @@ struct songNode * removeNode(struct songNode * node, int which){
     }
     struct songNode *hold = node->next;//a pointer to the node that will be removed(for freeing)
     node->next = node->next->next;
+    printf("Freeing node: %s - %s\n", node->artist, node->name);
     free(hold);
     return first;
 }
 
 
 struct songNode * removeAll(struct songNode * node){
+    if (node == 0){
+	return 0;
+    }
     while (node->next){
 	node = removeNode(node, 0);
 	if (node->next == 0){
 	    return removeNode(node, 0);
 	}
     }
-    return 0;//should never get to this
+    return removeNode(node, 0);
 }

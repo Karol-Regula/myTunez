@@ -6,12 +6,10 @@
 
 int main(){
     //test protocol will go here
-    printf("%d", 'A' + 0);
-    
     songNode * table[26] = { 0 };//array of 26 songNodes (linkedlists)
 
     srand(time(NULL));
-    
+    /*   
     printf("\n\n");
     struct songNode *list = 0;
     list = insertOrder(list, "Jim", "Kirk");
@@ -44,10 +42,13 @@ int main(){
     printf("\n");
     list = removeAll(list);
     printList(list);
+    */
 
-    printf("\nBeginning tests of songLib methods.\n");
+    printf("\n");
     addSong(table, "The Beatles", "Yesterday");
     addSong(table, "The Beatles", "Hey Jude");
+    addSong(table, "The Beatles", "Twist and Shout");
+    addSong(table, "The Beatles", "Here Comes the Sin");
     addSong(table, "David Bowie", "Let's Dance");
     
     printf("\n");
@@ -59,7 +60,7 @@ int main(){
 
     printf("\n");
     printArtist(table, "The Beatles");
-    printArtist(table, "Jim Kirk");
+    printArtist(table, "James T. Kirk");
 
     printf("\n");
     findSongLib(table, "The Beatles", "Hey Jude");
@@ -67,7 +68,15 @@ int main(){
 
     printf("\n");
     findArtistLib(table, "The Beatles");
-    findArtistLib(table, "Jim Kirk");
+    findArtistLib(table, "James T. Kirk");
+
+    printf("\n");
+    deleteSong(table, "The Beatles", "Hey Jude");
+    deleteSong(table, "James T. Kirk", "I'm the Best Captain");
+    printf("Jim, you are the best captain.\n");
+
+    printf("\n");
+    deleteLib(table);
     
     return 0;
 }
