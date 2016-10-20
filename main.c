@@ -51,6 +51,18 @@ int main(){
     addSong(table, "David Bowie", "Let's Dance");
     printLib(table);
 
+    printf("\n");
+    printLetter(table, 'T');
+    printLetter(table, 'A');
+
+    printf("\n");
+    findSongLib(table, "The Beatles", "Hey Jude");
+    findSongLib(table, "Darth Vader", "Imperial March");
+
+    printf("\n");
+    findArtistLib(table, "The Beatles");
+    findArtistLib(table, "Jim Kirk");
+
     
     return 0;
 }

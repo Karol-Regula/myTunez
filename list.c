@@ -60,6 +60,9 @@ struct songNode * insertOrder(struct songNode * node, char artist[256], char nam
 }
 
 struct songNode * findSong(struct songNode * node, char name[256]){
+    if (node == 0){
+	return 0;
+    }
     while (node->next){
 	if (strcmp(node->name, name) == 0){
 	    return node;
@@ -69,11 +72,13 @@ struct songNode * findSong(struct songNode * node, char name[256]){
     if (strcmp(node->name, name) == 0){
 	return node;//takes care of case at end dictionary
     }
-    printf("song not found\n");
     return 0;
 }
 
 struct songNode * findArtist(struct songNode * node, char artist[256]){
+    if (node == 0){
+	return 0;
+    }
     while (node->next){
 	if (strcmp(node->artist, artist) == 0){
 	    return node;
@@ -83,7 +88,6 @@ struct songNode * findArtist(struct songNode * node, char artist[256]){
     if (strcmp(node->artist, artist) == 0){
 	return node;//takes care of case at end dictionary
     }
-    printf("artist not found\n");
     return 0;
 }
 
