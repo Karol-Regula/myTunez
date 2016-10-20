@@ -6,9 +6,9 @@
 
 int main(){
     //test protocol will go here
-    printf("%d", 'a' + 2);
+    printf("%d", 'A' + 0);
     
-    songNode * table[26];//array of 26 songNodes (linkedlists)
+    songNode * table[26] = { 0 };//array of 26 songNodes (linkedlists)
 
     srand(time(NULL));
     
@@ -44,5 +44,11 @@ int main(){
     printf("\n");
     list = removeAll(list);
     printList(list);
+
+    printf("\nBeginning tests of songLib methods.\n");
+    addSong(table, "The Beatles", "Yesterday");
+    printLib(table);
+
+    
     return 0;
 }

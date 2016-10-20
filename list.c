@@ -11,12 +11,10 @@ void printList(struct songNode *node){
 	return;
     }
     while (node->next){
-  	printf("Artist: %s\n", node->artist);
-  	printf("Name: %s\n", node->name);
+  	printf("%s - %s\n", node->artist, node->name);
   	node = node->next;
     }
-    printf("Artist: %s\n", node->artist);
-    printf("Name: %s\n\n", node->name);
+    printf("%s - %s\n", node->artist, node->name);
 }
 
 void printNode(struct songNode *node){
@@ -38,7 +36,7 @@ struct songNode * insertOrder(struct songNode * node, char artist[256], char nam
     strcpy(new->artist, artist);
     if (node == 0){
 	return new; //if creating the first node in a list
-    } 
+    }
     if (strcmp(artist, node->artist) < 0){
 	new->next = node;
 	return new; //if adding to the front of the list
