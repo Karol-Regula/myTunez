@@ -22,7 +22,7 @@ void printNode(struct songNode *node){
 }
 
 struct songNode * insertFront(struct songNode * node, char artist[256], char name[256]){
-    struct songNode *new = (struct songNode *) malloc(sizeof(*new));
+    struct songNode *new = (struct songNode *) calloc(sizeof(*new), 1);
     strcpy(new->name, name);
     strcpy(new->artist, artist);
     new->next = node;
@@ -31,7 +31,7 @@ struct songNode * insertFront(struct songNode * node, char artist[256], char nam
 
 struct songNode * insertOrder(struct songNode * node, char artist[256], char name[256]){
     struct songNode *first = node;
-    struct songNode *new = (struct songNode *) malloc(sizeof(*new));
+    struct songNode *new = (struct songNode *) calloc(sizeof(*new), 1);
     strcpy(new->name, name);
     strcpy(new->artist, artist);
     if (node == 0){

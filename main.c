@@ -47,6 +47,8 @@ int main(){
 
     printf("\nBeginning tests of songLib methods.\n");
     addSong(table, "The Beatles", "Yesterday");
+    addSong(table, "The Beatles", "Hey Jude");
+    addSong(table, "David Bowie", "Let's Dance");
     printLib(table);
 
     
