@@ -1,7 +1,7 @@
-list: list.c list.h
-	gcc list.c -o myTunez
+compile: main.c list.c list.h songLib.c songLib.h
+	gcc main.c songLib.c list.c -o myTunez
 
-run: list
+run: compile
 	./myTunez
 
 clean:
