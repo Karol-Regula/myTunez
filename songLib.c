@@ -83,13 +83,30 @@ void findArtistLib(songNode * table[], char artist[256]){
 //NOTE: this function assumes that there are no duplicate song names
 void deleteSong(songNode * table[], char artist[256], char name[256]){
     int i = 0;
+    struct songNode *node;
+    struct songNode *found = 0;
     printf("Deleting song: %s - %s\n", artist, name);
     while (i < 26){
-	struct songNode *found = findSong(table[i], name);
-	if (found != 0){
-	    table[i] = removeNode(found, 0);
-	    printf("Removed successfully.\n");
-	    return;
+	if (table[i] != 0){
+	    node = table[i];
+	    while (node->next){
+		if (strcmp(node->next->name, name) == 0){
+		    found = node;
+		    break;
+		}
+		node = node->next;
+	    }
+	    if (strcmp(node->name, name) == 0){
+		printf("case1\n");
+		removeNode(node, 0);//takes care of case at end list
+		return;
+	    }
+	    if (found != 0){
+		printf("case2\n");
+		removeNode(found, 1);
+		printf("Removed successfully.\n");
+		return;
+	    }
 	}
 	i++;
     }

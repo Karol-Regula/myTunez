@@ -72,8 +72,12 @@ int main(){
 
     printf("\n");
     deleteSong(table, "The Beatles", "Hey Jude");
+    deleteSong(table, "The Beatles", "Yesterday");
     deleteSong(table, "James T. Kirk", "I'm the Best Captain");
     printf("Jim, you are the best captain.\n");
+
+    printf("\n");
+    printLib(table);
 
     printf("\n");
     deleteLib(table);
