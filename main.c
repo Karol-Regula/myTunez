@@ -48,7 +48,7 @@ int main(){
     addSong(table, "The Beatles", "Yesterday");
     addSong(table, "The Beatles", "Hey Jude");
     addSong(table, "The Beatles", "Twist and Shout");
-    addSong(table, "The Beatles", "Here Comes the Sin");
+    addSong(table, "The Beatles", "Here Comes the Sun");
     addSong(table, "David Bowie", "Let's Dance");
     
     printf("\n");

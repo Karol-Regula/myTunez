@@ -8,14 +8,15 @@ void addSong(songNode * table[], char artist[256], char name[256]){
     //printf("First letter: %c, number: %d\n", artist[0], artist[0]);
     int index = artist[0] - 65;//'A' == 65, this determines the linkedlist the song will be in
     table[index] = insertOrder(table[index], artist, name);
-    printf("Added song under the letter: %c (%d)\n", artist[0], index);
+    printf("Added song under letter: %c\n", artist[0]);
 }
 
 void printLib(songNode * table[]){
+    printf("Printing entire library:\n");
     int i = 0;
     while (i < 26){
 	if (table[i] != 0){
-	    printf("Printing letter: %c: %d\n", i + 65, i);
+	    printf("Printing letter: %c\n", i + 65);
 	    printList(table[i]);
 	}
 	i++;
@@ -24,8 +25,11 @@ void printLib(songNode * table[]){
 
 void printLetter(songNode * table[], char letter){
     int index = letter - 65;
-    printf("Printing letter: %c: %d\n", letter, index);
+    printf("Printing letter: %c\n", letter);
     printList(table[index]);
+    if (table[index] == 0){
+	printf("No songs found.\n");
+    }
 }
 
 void printArtist(songNode * table[], char artist[256]){
@@ -96,7 +100,6 @@ void deleteLib(songNode * table[]){
     printf("Deleting entire library.\n");
     int i = 0;
     while (i < 26){
-	printf("working\n");
 	table[i] == removeAll(table[i]);
 	i++;
     }

@@ -39,7 +39,18 @@ struct songNode * insertOrder(struct songNode * node, char artist[256], char nam
     }
     if (strcmp(artist, node->artist) < 0){
 	new->next = node;
-	return new; //if adding to the front of the list
+	return new; //if adding to the front of the list (no duplicate artist)
+    }
+    if (!(node->next) && strcmp(artist, node->artist) == 0){//only one song and duplicate artist
+	if (strcmp(name, node->name) < 0){
+	    new->next = node;
+	    return new;//if added to front
+	}else{
+	    node->next = new;
+	    return node;//if added to end
+	}
+
+	return first;//returns here if a duplicate artist was found at the first node
     }
     while(node->next && strcmp(artist, node->next->artist) >= 0){
 	if (node->next && strcmp(artist, node->next->artist) == 0){
