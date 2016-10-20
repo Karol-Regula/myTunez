@@ -49,11 +49,17 @@ int main(){
     addSong(table, "The Beatles", "Yesterday");
     addSong(table, "The Beatles", "Hey Jude");
     addSong(table, "David Bowie", "Let's Dance");
+    
+    printf("\n");
     printLib(table);
 
     printf("\n");
     printLetter(table, 'T');
     printLetter(table, 'A');
+
+    printf("\n");
+    printArtist(table, "The Beatles");
+    printArtist(table, "Jim Kirk");
 
     printf("\n");
     findSongLib(table, "The Beatles", "Hey Jude");
@@ -62,7 +68,6 @@ int main(){
     printf("\n");
     findArtistLib(table, "The Beatles");
     findArtistLib(table, "Jim Kirk");
-
     
     return 0;
 }
