@@ -49,11 +49,23 @@ struct songNode * insertOrder(struct songNode * node, char artist[256], char nam
 	    node->next = new;
 	    return node;//if added to end
 	}
-
 	return first;//returns here if a duplicate artist was found at the first node
+    }
+    if (node->next && strcmp(artist, node->artist) == 0){//if at beginning but more exist
+	if (strcmp(name, node->name) < 0){
+	    new->next = node;
+	    return new;//if added to front
+	}
     }
     while(node->next && strcmp(artist, node->next->artist) >= 0){
 	if (node->next && strcmp(artist, node->next->artist) == 0){
+	    if (strcmp(node->next->name, name) < 0){
+		printf("new case");
+		new->next = node->next;
+		node->next = new;
+		return first;//if artist duplicate found but song needs to go in front
+		
+	    }
 	    while(node->next && strcmp(name, node->next->name) > 0){
 		node = node->next;
 	    }
