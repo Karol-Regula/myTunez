@@ -71,6 +71,9 @@ int main(){
     findArtistLib(table, "James T. Kirk");
 
     printf("\n");
+    shuffle(table);
+
+    printf("\n");
     deleteSong(table, "The Beatles", "Hey Jude");
     deleteSong(table, "The Beatles", "Yesterday");
     deleteSong(table, "James T. Kirk", "I'm the Best Captain");

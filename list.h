@@ -13,3 +13,4 @@ struct songNode * findArtist(struct songNode *, char[256]);
 struct songNode * findRandom(struct songNode *);
 struct songNode * removeNode(struct songNode *, int);
 struct songNode * removeAll(struct songNode *);
+int findLength(struct songNode *);

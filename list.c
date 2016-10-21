@@ -165,3 +165,15 @@ struct songNode * removeAll(struct songNode * node){
     }
     return removeNode(node, 0);
 }
+
+int findLength(struct songNode * node){
+    int i = 0;
+    if (node == 0){
+	return i;
+    }
+    while (node->next){
+	node = node->next;
+	i++;
+    }
+    return i + 1;
+}

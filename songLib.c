@@ -80,6 +80,29 @@ void findArtistLib(songNode * table[], char artist[256]){
     return;
 }
 
+int selectRandom(songNode * table[]){
+    int letter = rand()%26;
+    while (table[letter] == 0){
+	letter = rand()%26;
+    }
+    int songs = rand()%findLength(table[letter]);
+    struct songNode *node = table[letter];
+    while(songs){
+	node = node->next;
+	songs--;
+    }
+    printNode(node);
+    return 1;
+}
+
+void shuffle(songNode * table[]){
+    printf("Selecting random songs:\n");
+    int i = 0;
+    while(i < 3){
+	i += selectRandom(table);
+    }
+}
+
 //NOTE: this function assumes that there are no duplicate song names
 void deleteSong(songNode * table[], char artist[256], char name[256]){
     int i = 0;
@@ -97,12 +120,10 @@ void deleteSong(songNode * table[], char artist[256], char name[256]){
 		node = node->next;
 	    }
 	    if (strcmp(node->name, name) == 0){
-		printf("case1\n");
 		removeNode(node, 0);//takes care of case at end list
 		return;
 	    }
 	    if (found != 0){
-		printf("case2\n");
 		removeNode(found, 1);
 		printf("Removed successfully.\n");
 		return;

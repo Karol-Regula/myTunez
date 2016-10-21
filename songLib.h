@@ -8,3 +8,5 @@ void findSongLib(songNode * [], char[], char[]);
 void findArtistLib(songNode * [], char[]);
 void deleteSong(songNode * [], char[], char[]);
 void deleteLib(songNode * []);
+void selectRandom(songNode * []);
+void shuffle(songNode * []);
