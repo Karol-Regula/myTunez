@@ -8,7 +8,7 @@ void addSong(songNode * table[], char artist[256], char name[256]){
     //printf("First letter: %c, number: %d\n", artist[0], artist[0]);
     int index = artist[0] - 65;//'A' == 65, this determines the linkedlist the song will be in
     table[index] = insertOrder(table[index], artist, name);
-    printf("Added song under letter: %c\n", artist[0]);
+    printf("Added song under letter %c: %s - %s \n", artist[0], artist, name);
 }
 
 void printLib(songNode * table[]){

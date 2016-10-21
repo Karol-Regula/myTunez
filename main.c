@@ -50,15 +50,18 @@ int main(){
     addSong(table, "The Beatles", "Twist and Shout");
     addSong(table, "The Beatles", "Here Comes the Sun");
     addSong(table, "David Bowie", "Let's Dance");
+    addSong(table, "Darth Vader", "Let's Dance");
     
     printf("\n");
     printLib(table);
 
     printf("\n");
+    printf("Printing individual letters:\n");
     printLetter(table, 'T');
     printLetter(table, 'A');
 
     printf("\n");
+    printf("Printing individual artists:\n");
     printArtist(table, "The Beatles");
     printArtist(table, "James T. Kirk");
 
