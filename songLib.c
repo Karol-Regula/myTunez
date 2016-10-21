@@ -135,7 +135,7 @@ void deleteSong(songNode * table[], char artist[256], char name[256]){
 }
 
 void deleteLib(songNode * table[]){
-    printf("Deleting entire library.\n");
+    printf("Deleting entire library:\n");
     int i = 0;
     while (i < 26){
 	table[i] == removeAll(table[i]);

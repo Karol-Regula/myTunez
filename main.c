@@ -45,12 +45,16 @@ int main(){
     */
 
     printf("\n");
-    addSong(table, "The Beatles", "Yesterday");
-    addSong(table, "The Beatles", "Hey Jude");
-    addSong(table, "The Beatles", "Twist and Shout");
-    addSong(table, "The Beatles", "Here Comes the Sun");
-    addSong(table, "David Bowie", "Let's Dance");
     addSong(table, "Darth Vader", "Let's Dance");
+    addSong(table, "David Bowie", "Let's Not Dance");
+    addSong(table, "Darth Vader", "I Misplaced the Death Star");
+    addSong(table, "The Beatles", "Tomorrow");
+    addSong(table, "The Beatles", "Hey James");
+    addSong(table, "The Beatles", "Run and Scream");
+    addSong(table, "The Beatles", "Here Comes the Moon");
+    addSong(table, "Jean-Luc Picard", "Shut up Wesley");
+    addSong(table, "Jean-Luc Picard", "Make it Flow");
+    addSong(table, "Jean-Luc Picard", "Data, Where is My Tea?");
     
     printf("\n");
     printLib(table);
@@ -66,7 +70,7 @@ int main(){
     printArtist(table, "James T. Kirk");
 
     printf("\n");
-    findSongLib(table, "The Beatles", "Hey Jude");
+    findSongLib(table, "The Beatles", "Hey James");
     findSongLib(table, "Darth Vader", "Imperial March");
 
     printf("\n");
@@ -77,8 +81,8 @@ int main(){
     shuffle(table);
 
     printf("\n");
-    deleteSong(table, "The Beatles", "Hey Jude");
-    deleteSong(table, "The Beatles", "Yesterday");
+    deleteSong(table, "The Beatles", "Hey James");
+    deleteSong(table, "The Beatles", "Tomorrow");
     deleteSong(table, "James T. Kirk", "I'm the Best Captain");
     printf("Jim, you are the best captain.\n");
 
